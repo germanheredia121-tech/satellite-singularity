@@ -1,0 +1,29 @@
+---
+import Experienceitem from "./ExperienceItem.astro";
+
+const EXPERIENCE = [
+  {
+    date: 'Actualidad',
+    title: 'Freelance - Desarrollo de landing pages',
+    description: 'Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.',
+  },
+  {
+    date: '2020-2022',
+    title: 'Desarrollo de videojuegos en Unity y Blender',
+    description: 'Desarrolle varios videojuegos y modelos 3D, adquiriendo habilidades en programación y diseño gráfico.',
+  },
+  {
+    date: '2016-2020',
+    title: 'Desarrollo de servidores de SA-MP con PAWN y MySQL',
+    description: 'Desarrolle paginas y gamemodes para servidores de SA-MP, adquiriendo habilidades en programación y diseño de experiencias de usuario.',
+  },
+];
+---
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700 items-center"> 
+  {EXPERIENCE.map(experience => (
+    <li class="mb-10 ms-4 ">
+      <Experienceitem {...experience} />
+    </li>
+  ))}         
+</ol>
