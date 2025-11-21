@@ -1,29 +1,81 @@
 ---
 import Experienceitem from "./ExperienceItem.astro";
+import { t } from '../i18n/translations';
+
+// Default to Spanish, will be updated on client side
+const lang: 'es' | 'en' | 'de' = 'es';
 
 const EXPERIENCE = [
   {
-    date: 'Actualidad',
-    title: 'Freelance - Desarrollo de landing pages',
-    description: 'Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.',
+    date: t('actualidad', lang),
+    title: t('experiencia1Title', lang),
+    description: t('experiencia1Desc', lang),
   },
   {
     date: '2020-2022',
-    title: 'Desarrollo de videojuegos en Unity y Blender',
-    description: 'Desarrolle varios videojuegos y modelos 3D, adquiriendo habilidades en programación y diseño gráfico.',
+    title: t('experiencia2Title', lang),
+    description: t('experiencia2Desc', lang),
   },
   {
     date: '2016-2020',
-    title: 'Desarrollo de servidores de SA-MP con PAWN y MySQL',
-    description: 'Desarrolle paginas y gamemodes para servidores de SA-MP, adquiriendo habilidades en programación y diseño de experiencias de usuario.',
+    title: t('experiencia3Title', lang),
+    description: t('experiencia3Desc', lang),
   },
 ];
 ---
 
-<ol class="relative border-s border-gray-200 dark:border-gray-700 items-center"> 
+<ol class="relative border-s border-gray-200 dark:border-gray-700 items-center px-4 sm:px-0"> 
   {EXPERIENCE.map(experience => (
     <li class="mb-10 ms-4 ">
       <Experienceitem {...experience} />
     </li>
   ))}         
 </ol>
+
+<script>
+  function updateExperienceTranslations() {
+    const lang = localStorage.getItem('language') || 'es';
+    const translations = window.__TRANSLATIONS__ || {};
+    const langTranslations = translations[lang] || translations['es'] || {};
+    
+    // Update experience items
+    const experienceItems = document.querySelectorAll('.experience-item');
+    experienceItems.forEach((item, index) => {
+      const dateEl = item.querySelector('.experience-date');
+      const titleEl = item.querySelector('.experience-title');
+      const descEl = item.querySelector('.experience-description');
+      
+      if (index === 0) {
+        if (dateEl) dateEl.textContent = langTranslations['actualidad'] || 'Actualidad';
+        if (titleEl) titleEl.textContent = langTranslations['experiencia1Title'] || '';
+        if (descEl) descEl.textContent = langTranslations['experiencia1Desc'] || '';
+      } else if (index === 1) {
+        if (titleEl) titleEl.textContent = langTranslations['experiencia2Title'] || '';
+        if (descEl) descEl.textContent = langTranslations['experiencia2Desc'] || '';
+      } else if (index === 2) {
+        if (titleEl) titleEl.textContent = langTranslations['experiencia3Title'] || '';
+        if (descEl) descEl.textContent = langTranslations['experiencia3Desc'] || '';
+      }
+    });
+    
+    // Update "Learn more" button
+    const learnMoreBtn = document.querySelector('[data-i18n="learnMore"]');
+    if (learnMoreBtn && langTranslations['learnMore']) {
+      const textNode = Array.from(learnMoreBtn.childNodes).find(node => node.nodeType === Node.TEXT_NODE);
+      if (textNode) {
+        textNode.textContent = langTranslations['learnMore'] + ' ';
+      }
+    }
+  }
+  
+  window.addEventListener('languagechange', () => {
+    setTimeout(updateExperienceTranslations, 50);
+  });
+  
+  // Initial update
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateExperienceTranslations);
+  } else {
+    setTimeout(updateExperienceTranslations, 100);
+  }
+</script>

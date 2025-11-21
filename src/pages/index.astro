@@ -8,52 +8,111 @@ import Experience from '../components/Experience.astro';
 import SectionContainer from '../icons/SectionContainer.astro';
 import Header from '../components/Header.astro';
 import Habilidades from '../components/Habilidades.astro';
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Proyectos from '../components/Proyectos.astro';
+import ContactMe from '../components/ContactMe.astro';
+import { t } from '../i18n/translations';
+import { translations } from '../i18n/translations';
+
+// Default to Spanish, will be updated on client side
+const lang: 'es' | 'en' | 'de' = 'es';
 ---
 
 <Layout>
-		<Header />
+	<Header />
 	<main class="scroll-smooth snap-y snap-mandatory overflow-auto w-full h-screen relative z-10 flex min-h-screen flex-col items-center justify-start text-white ">
-			<div id="inicio" class="snap-center flex flex-col items-center justify-center pt-60 transition-transform duration-300 hover:scale-115 ease-in">
-				<h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 py-20 text-center justify-center hover:drop-shadow-[0_0_1px_white]">German Heredia Ezequiel</h1>
-				<h2 class="text-2xl font-bold text-center"><span class="text-yellow-200/90 opacity-90">Desarrollador de Aplicaciones</span></h2>
-				<h2 class="text-1xl font-bold text-center"><span class="text-yellow-200/90 opacity-90">Full Stack Developer</span></h2>
-			</div>
-			<div>
-				<SectionContainer>
-				<nav class="flex gap-x-2 justify-center">
-		
-				<SocialPill href="https://www.linkedin.com/in/german-heredia-12504a376/?trk=opento_sprofile_details">
-					<LinkedInIcon width="24" height="24" />
-					LinkedIn
-				</SocialPill>
-				<SocialPill href="https://github.com/germanheredia121-tech">
-					<GitHubIcon width="24" height="24" />
-					GitHub
-				</SocialPill>
-				<SocialPill href="mailto:germanheredia121@gmail.com">
-					<Mail width="24" height="24" />
-					germanheredia121@gmail.com
-				</SocialPill>
-				</nav>
-				</SectionContainer>
-				<a href="#experiencia" 
-   				class="absolute bottom-10 text-white text-4xl animate-bounce cursor-pointer select-none left-1/2 -translate-x-1/2">▼
-				</a>
-			</div>
-			
-		
-		<div class="snap-center transition-transform duration-300 hover:scale-120" id="experiencia">
-			<section class="py-50 px-20">
-			<h2 class="text-4xl font-bold text-center pb-30"><span class="text-white-200/90 opacity-90">Experiencia</span></h2>
-			<Experience />
-			</section>
+		<div id="inicio" class="snap-center flex flex-col items-center justify-center pt-20 sm:pt-40 md:pt-60 transition-transform duration-300 hover:scale-115 ease-in px-4">
+			<h1 class="text-white text-3xl sm:text-4xl md:text-5xl font-bold flex flex-row gap-x-2 sm:gap-x-4 py-10 sm:py-16 md:py-20 text-center justify-center hover:drop-shadow-[0_0_1px_white]">German Heredia Ezequiel</h1>
+			<h2 class="text-xl sm:text-2xl font-bold text-center"><span class="text-yellow-200/90 opacity-90" data-i18n="desarrollador">{t('desarrollador', lang)}</span></h2>
+			<h2 class="text-lg sm:text-xl font-bold text-center"><span class="text-yellow-200/90 opacity-90" data-i18n="fullStack">{t('fullStack', lang)}</span></h2>
+		</div>
+		<div>
+			<SectionContainer>
+			<nav class="flex gap-x-2 justify-center">
+	
+			<SocialPill href="https://www.linkedin.com/in/german-heredia-12504a376/?trk=opento_sprofile_details">
+				<LinkedInIcon width="20" height="20" />
+				<span class="text-sm sm:text-base">LinkedIn</span>
+			</SocialPill>
+			<SocialPill href="https://github.com/germanheredia121-tech">
+				<GitHubIcon width="20" height="20" />
+				<span class="text-sm sm:text-base">GitHub</span>
+			</SocialPill>
+			<SocialPill href="mailto:germanheredia121@gmail.com">
+				<Mail width="20" height="20" />
+				<span class="text-xs sm:text-sm md:text-base break-all">germanheredia121@gmail.com</span>
+			</SocialPill>
+			</nav>
+			</SectionContainer>
+			<a href="#experiencia" 
+				class="absolute bottom-10 text-white text-4xl animate-bounce cursor-pointer select-none left-1/2 -translate-x-1/2">▼
+			</a>
 		</div>
 		
-		<div id="habilidades" class="snap-center ">
-			<Habilidades />
-		</div>
-		
+	
+	<div class="snap-center transition-transform duration-300 hover:scale-120" id="experiencia">
+		<section class="py-20 sm:py-30 md:py-50 px-4 sm:px-10 md:px-20">
+		<h2 class="text-3xl sm:text-4xl font-bold text-center pb-8 sm:pb-20 md:pb-30"><span class="text-white-200/90 opacity-90" data-i18n="experiencia">{t('experiencia', lang)}</span></h2>
+		<Experience />
+		</section>
+	</div>
+	
+	<div id="habilidades" class="snap-center ">
+		<Habilidades />
+	</div>
+	
+	<div id="proyectos" class="snap-center flex items-start justify-center">
+		<section class="pt-12 sm:pt-16 md:pt-20 pb-20 sm:pb-30 md:pb-50 px-4 sm:px-10 md:px-20 w-full">
+			<h2 class="text-3xl sm:text-4xl font-bold text-center pb-1"><span class="text-white-200/90 opacity-90" data-i18n="proyectos">{t('proyectos', lang)}</span></h2>
+			<Proyectos />
+		</section>
+	</div>
+	
+	<div id="contacto" class="snap-center flex items-start justify-center">
+		<section class="pt-12 sm:pt-16 md:pt-20 pb-20 sm:pb-30 md:pb-50 px-4 sm:px-10 md:px-20 w-full">
+			<h2 class="text-3xl sm:text-4xl font-bold text-center pb-2 sm:pb-4"><span class="text-white-200/90 opacity-90" data-i18n="contactame">{t('contactame', lang)}</span></h2>
+			<ContactMe />
+		</section>
+	</div>
+	
 	</main>
 </Layout>
+
+<script define:vars={{ translations }}>
+  // Load translations into window for client-side updates
+  window.__TRANSLATIONS__ = translations;
+  
+  // Function to update translations
+  function updateTranslations() {
+    const lang = localStorage.getItem('language') || 'es';
+    const translations = window.__TRANSLATIONS__ || {};
+    const langTranslations = translations[lang] || translations['es'] || {};
+    
+    // Update all elements with data-i18n attribute
+    document.querySelectorAll('[data-i18n]').forEach((element) => {
+      const key = element.getAttribute('data-i18n');
+      if (key && langTranslations[key]) {
+        element.textContent = langTranslations[key];
+      }
+    });
+  }
+  
+  // Update translations when language changes
+  window.addEventListener('languagechange', () => {
+    updateTranslations();
+    // Force a small delay to ensure all components are ready
+    setTimeout(updateTranslations, 100);
+  });
+  
+  // Initial update when DOM is ready
+  function initTranslations() {
+    updateTranslations();
+    // Also update after a short delay to catch any dynamically loaded content
+    setTimeout(updateTranslations, 200);
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTranslations);
+  } else {
+    initTranslations();
+  }
+</script>
