@@ -19,7 +19,7 @@ const lang: 'es' | 'en' | 'de' = 'es';
 
 <Layout>
 	<Header />
-	<main class="scroll-smooth snap-y snap-mandatory overflow-auto w-full h-screen relative z-10 flex min-h-screen flex-col items-center justify-start text-white ">
+	<main class="scroll-smooth snap-y snap-mandatory overflow-auto w-full h-screen relative z-10 flex flex-col items-center justify-start text-white ">
 		<div id="inicio" class="snap-center flex flex-col items-center justify-center pt-20 sm:pt-40 md:pt-60 transition-transform duration-300 hover:scale-115 ease-in px-4">
 			<h1 class="text-white text-3xl sm:text-4xl md:text-5xl font-bold flex flex-row gap-x-2 sm:gap-x-4 py-10 sm:py-16 md:py-20 text-center justify-center hover:drop-shadow-[0_0_1px_white]">German Heredia Ezequiel</h1>
 			<h2 class="text-xl sm:text-2xl font-bold text-center"><span class="text-yellow-200/90 opacity-90" data-i18n="desarrollador">{t('desarrollador', lang)}</span></h2>
@@ -49,33 +49,34 @@ const lang: 'es' | 'en' | 'de' = 'es';
 		</div>
 		
 	
-	<div class="snap-center transition-transform duration-300 hover:scale-120" id="experiencia">
+	<div class="snap-start transition-transform duration-300 hover:scale-120 " id="experiencia">
 		<section class="py-20 sm:py-30 md:py-50 px-4 sm:px-10 md:px-20">
-		<h2 class="text-3xl sm:text-4xl font-bold text-center pb-8 sm:pb-20 md:pb-30"><span class="text-white-200/90 opacity-90" data-i18n="experiencia">{t('experiencia', lang)}</span></h2>
-		<Experience />
+			<h2 class="text-3xl sm:text-4xl font-bold text-center pb-8 sm:pb-20 md:pb-30"><span class="text-white-200/90 opacity-90" data-i18n="experiencia">{t('experiencia', lang)}</span></h2>
+			<Experience />
 		</section>
 	</div>
 	
-	<div id="habilidades" class="snap-center pb-40">
-		<Habilidades />
+	<div id="habilidades" class="snap-start">
+		<section class="pt-12 sm:pt-16 md:pt-20 pb-20 sm:pb-30 md:pb-50 px-4 sm:px-10 md:px-20">
+			<Habilidades />
+		</section>
 	</div>
 	
-	<div id="proyectos" class="snap-center flex items-start justify-center">
-		<section class="pt-12 sm:pt-16 md:pt-20 pb-20 sm:pb-30 md:pb-50 px-4 sm:px-10 md:px-20 w-full">
+	<div id="proyectos" class="snap-start position-relative">
+		<section class="pt-12 sm:pt-16 md:pt-20 pb-20 sm:pb-30 md:pb-50 px-4 sm:px-10 md:px-20">
 			<h2 class="text-3xl sm:text-4xl font-bold text-center pb-1"><span class="text-white-200/90 opacity-90" data-i18n="proyectos">{t('proyectos', lang)}</span></h2>
 			<Proyectos />
 		</section>
 	</div>
 	
-	<div id="contacto" class="snap-center flex items-start justify-center">
-		<section class="pt-12 sm:pt-16 md:pt-20 pb-20 sm:pb-30 md:pb-50 px-4 sm:px-10 md:px-20 w-full">
+	<div id="contacto" class="snap-start">
+		<section class="pt-12 sm:pt-16 md:pt-20 pb-20 sm:pb-30 md:pb-50 px-4 sm:px-10 md:px-20">
 			<h2 class="text-3xl sm:text-4xl font-bold text-center pb-2 sm:pb-4"><span class="text-white-200/90 opacity-90" data-i18n="contactame">{t('contactame', lang)}</span></h2>
 			<ContactMe />
 		</section>
 	</div>
 	
 	</main>
-	
 </Layout>
 
 <script define:vars={{ translations }}>

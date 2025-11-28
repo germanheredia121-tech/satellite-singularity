@@ -1,11 +1,15 @@
 @import "tailwindcss";
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
-section {
-  height: 100vh;
-}
 
-@media (max-width: 768px) {
-  section {
-    min-height: calc(100vh - 60px);
+
+
+@media (max-width: 780px) {
+  #inicio {
+    padding-top: 8rem !important;
+    padding-bottom: 8rem;
   }
+}
+section {
+  min-height: 100svh;      /* usa el viewport seguro en mobile */
+  overflow: hidden;         /* evita que asome la siguiente */
 }
