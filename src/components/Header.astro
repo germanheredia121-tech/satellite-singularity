@@ -8,18 +8,18 @@ const lang: 'es' | 'en' | 'de' = 'es';
 
 <header class="fixed w-full z-20 top-0 left-0">
   <nav class="bg-neutral-900/95">
-    <div class="max-w-7xl relative flex items-center mx-auto p-2 sm:p-4">
-      <div class="flex-1 hidden sm:block"></div>
-      <div class="items-center justify-center w-full md:flex md:w-auto" id="navbar-language">
-        <ul class="font-medium flex flex-col sm:flex-row p-2 sm:p-4 md:p-0 mt-0 sm:mt-4 bg-neutral-secondary-soft sm:bg-transparent md:mt-0 md:border-0 md:justify-center gap-1 sm:gap-0">
-          <li><a href="#inicio" class="block py-2 px-3 text-sm sm:text-base text-white transition-transform duration-300 hover:scale-120" aria-current="page" data-i18n="inicio">{t('inicio', lang)}</a></li>
-          <li><a href="#experiencia" class="block py-2 px-3 text-sm sm:text-base text-gray-300 hover:text-white transition-transform duration-300 hover:scale-120" data-i18n="experiencia">{t('experiencia', lang)}</a></li>
-          <li><a href="#habilidades" class="block py-2 px-3 text-sm sm:text-base text-gray-300 hover:text-white transition-transform duration-300 hover:scale-120" data-i18n="habilidades">{t('habilidades', lang)}</a></li>
-          <li><a href="#proyectos" class="block py-2 px-3 text-sm sm:text-base text-gray-300 hover:text-white transition-transform duration-300 hover:scale-120" data-i18n="proyectos">{t('proyectos', lang)}</a></li>
-          <li><a href="#contacto" class="block py-2 px-3 text-sm sm:text-base text-gray-300 hover:text-white transition-transform duration-300 hover:scale-120" data-i18n="contactame">{t('contactame', lang)}</a></li>
+    <div class="max-w-7xl relative flex items-center justify-between mx-auto p-1 sm:p-2 md:p-4">
+      <div class="flex-1"></div>
+      <div class="items-center justify-center flex w-auto flex-1" id="navbar-language">
+        <ul class="font-medium flex flex-row p-0 justify-center gap-0.5 sm:gap-1 md:gap-0">
+          <li><a href="#inicio" class="block py-1 sm:py-2 px-1 sm:px-2 md:px-3 text-xs sm:text-sm md:text-base text-white transition-transform duration-300 hover:scale-120 whitespace-nowrap" aria-current="page" data-i18n="inicio">{t('inicio', lang)}</a></li>
+          <li><a href="#experiencia" class="block py-1 sm:py-2 px-1 sm:px-2 md:px-3 text-xs sm:text-sm md:text-base text-gray-300 hover:text-white transition-transform duration-300 hover:scale-120 whitespace-nowrap" data-i18n="experiencia">{t('experiencia', lang)}</a></li>
+          <li><a href="#habilidades" class="block py-1 sm:py-2 px-1 sm:px-2 md:px-3 text-xs sm:text-sm md:text-base text-gray-300 hover:text-white transition-transform duration-300 hover:scale-120 whitespace-nowrap" data-i18n="habilidades">{t('habilidades', lang)}</a></li>
+          <li><a href="#proyectos" class="block py-1 sm:py-2 px-1 sm:px-2 md:px-3 text-xs sm:text-sm md:text-base text-gray-300 hover:text-white transition-transform duration-300 hover:scale-120 whitespace-nowrap" data-i18n="proyectos">{t('proyectos', lang)}</a></li>
+          <li><a href="#contacto" class="block py-1 sm:py-2 px-1 sm:px-2 md:px-3 text-xs sm:text-sm md:text-base text-gray-300 hover:text-white transition-transform duration-300 hover:scale-120 whitespace-nowrap" data-i18n="contactame">{t('contactame', lang)}</a></li>
         </ul>
       </div>
-      <div class="flex-1 flex justify-end items-center sm:flex-1">
+      <div class="flex-1 flex justify-end items-center">
         <LanguageToggle />
       </div>
     </div>
