@@ -12,7 +12,7 @@ import Proyectos from '../components/Proyectos.astro';
 import ContactMe from '../components/ContactMe.astro';
 import { t } from '../i18n/translations';
 import { translations } from '../i18n/translations';
-
+import Footer from '../components/footer.astro';
 // Default to Spanish, will be updated on client side
 const lang: 'es' | 'en' | 'de' = 'es';
 ---
@@ -75,7 +75,9 @@ const lang: 'es' | 'en' | 'de' = 'es';
 			<ContactMe />
 		</section>
 	</div>
-	
+	<footer class="snap-start">
+		<Footer />
+	</footer>
 	</main>
 </Layout>
 
