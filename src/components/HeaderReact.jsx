@@ -30,7 +30,7 @@ export default function HeaderReact() {
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-md border-b border-white/10 ">
-      <nav className="flex justify-center gap-6 py-4 ">
+      <nav className="flex gap-6 py-4 px-4 overflow-x-auto whitespace-nowrap scrollbar-none justify-start sm:justify-center">
         {sections.map((sec) => (
           <a
             key={sec}
