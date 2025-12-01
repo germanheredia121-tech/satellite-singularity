@@ -1,4 +1,6 @@
 ---
+import LightRays from  '../components/LightRays';
+import RobustFadeIn from '../components/RobustFadeIn.jsx';
 import Layout from '../layouts/Layout.astro';
 import LinkedInIcon from '../icons/linkedin.astro';
 import SocialPill from '../icons/socialpill.astro';
@@ -19,61 +21,88 @@ const lang: 'es' | 'en' | 'de' = 'es';
 
 <Layout>
 	<Header />
+
 	<main class="scroll-smooth snap-y snap-mandatory overflow-auto w-full h-screen relative z-10 flex flex-col items-center justify-start text-white ">
-		<div id="inicio" class="snap-center flex flex-col items-center justify-center pt-20 sm:pt-40 md:pt-60 transition-transform duration-300 hover:scale-115 ease-in px-4">
-			<h1 class="text-white text-3xl sm:text-4xl md:text-5xl font-bold flex flex-row gap-x-2 sm:gap-x-4 py-10 sm:py-16 md:py-20 text-center justify-center hover:drop-shadow-[0_0_1px_white]">German Heredia Ezequiel</h1>
-			<h2 class="text-xl sm:text-2xl font-bold text-center"><span class="text-yellow-200/90 opacity-90" data-i18n="desarrollador">{t('desarrollador', lang)}</span></h2>
-			<h2 class="text-lg sm:text-xl font-bold text-center"><span class="text-yellow-200/90 opacity-90" data-i18n="fullStack">{t('fullStack', lang)}</span></h2>
-		</div>
-		<div>
-			<SectionContainer>
-			<nav class="flex gap-x-2 justify-center">
-	
-			<SocialPill href="https://www.linkedin.com/in/german-heredia-12504a376/?trk=opento_sprofile_details">
-				<LinkedInIcon width="20" height="20" />
-				<span class="text-sm sm:text-base">LinkedIn</span>
-			</SocialPill>
-			<SocialPill href="https://github.com/germanheredia121-tech">
-				<GitHubIcon width="20" height="20" />
-				<span class="text-sm sm:text-base">GitHub</span>
-			</SocialPill>
-			<SocialPill href="mailto:germanheredia121@gmail.com">
-				<Mail width="20" height="20" />
-				<span class="text-xs sm:text-sm md:text-base break-all">germanheredia121@gmail.com</span>
-			</SocialPill>
-			</nav>
-			</SectionContainer>
-			<a href="#experiencia" 
-				class="absolute bottom-10 text-white text-4xl animate-bounce cursor-pointer select-none left-1/2 -translate-x-1/2">▼
-			</a>
-		</div>
+	<div class="fixed inset-0 -z-10 overflow-hidden">
+  <LightRays
+ 	client:load
+    raysOrigin="top-center"
+    raysColor="#aaaaaa"
+    raysSpeed={1.5}
+    lightSpread={0.8}
+    rayLength={1.2}
+    followMouse={true}
+    mouseInfluence={0.1}
+    noiseAmount={0.1}
+    distortion={0.05}
+    className="w-full h-full"
+  />
+</div>
+		<RobustFadeIn client:visible>
+			
+			<div id="inicio" class="snap-center flex flex-col items-center justify-center pt-20 sm:pt-40 md:pt-60 transition-transform duration-300 hover:scale-115 ease-in px-4">
+				<h1 class="text-white text-3xl sm:text-4xl md:text-5xl font-bold flex flex-row gap-x-2 sm:gap-x-4 py-10 sm:py-16 md:py-20 text-center justify-center hover:drop-shadow-[0_0_1px_white]">German Heredia Ezequiel</h1>
+				<h2 class="text-xl sm:text-2xl font-bold text-center"><span class="text-yellow-200/90 opacity-90" data-i18n="desarrollador">{t('desarrollador', lang)}</span></h2>
+				<h2 class="text-lg sm:text-xl font-bold text-center"><span class="text-yellow-200/90 opacity-90" data-i18n="fullStack">{t('fullStack', lang)}</span></h2>
+			</div>
+			<div>
+				<SectionContainer>
+				<nav class="flex gap-x-2 justify-center">
 		
+				<SocialPill href="https://www.linkedin.com/in/german-heredia-12504a376/?trk=opento_sprofile_details">
+					<LinkedInIcon width="20" height="20" />
+					<span class="text-sm sm:text-base">LinkedIn</span>
+				</SocialPill>
+				<SocialPill href="https://github.com/germanheredia121-tech">
+					<GitHubIcon width="20" height="20" />
+					<span class="text-sm sm:text-base">GitHub</span>
+				</SocialPill>
+				<SocialPill href="mailto:germanheredia121@gmail.com">
+					<Mail width="20" height="20" />
+					<span class="text-xs sm:text-sm md:text-base break-all">germanheredia121@gmail.com</span>
+				</SocialPill>
+				</nav>
+				</SectionContainer>
+				
+			</div>
+		</RobustFadeIn>
+		<a href="#experiencia" 
+					class="absolute bottom-10 text-white text-4xl animate-bounce cursor-pointer select-none left-1/2 -translate-x-1/2">▼
+				</a>
 	
 	<div class="snap-start" id="experiencia">
-		<section class="py-20 sm:py-30 md:py-50 px-4 sm:px-10 md:px-20">
-			<h2 class="text-5xl sm:text-5xl font-bold text-center pb-8 sm:pb-20 md:pb-30 transition-transform duration-300 hover:scale-120"><span class="text-white-200/90 opacity-90" data-i18n="experiencia">{t('experiencia', lang)}</span></h2>
-			<Experience />
-		</section>
+		<RobustFadeIn client:visible>
+			<section class="py-20 sm:py-30 md:py-50 px-4 sm:px-10 md:px-20">
+				<h2 class="text-5xl sm:text-5xl font-bold text-center pb-8 sm:pb-20 md:pb-30 transition-transform duration-300 hover:scale-120"><span class="text-white-200/90 opacity-90" data-i18n="experiencia">{t('experiencia', lang)}</span></h2>
+				<Experience />
+			</section>
+		</RobustFadeIn>
 	</div>
 	
 	<div id="habilidades" class="snap-start">
-		<section class="pt-12 sm:pt-16 md:pt-20 pb-20 sm:pb-30 md:pb-50 px-4 sm:px-10 md:px-20">
-			<Habilidades />
-		</section>
+		<RobustFadeIn client:visible>
+			<section class="pt-12 sm:pt-16 md:pt-20 pb-20 sm:pb-30 md:pb-50 px-4 sm:px-10 md:px-20">
+				<Habilidades />
+			</section>
+		</RobustFadeIn>
 	</div>
 	
 	<div id="proyectos" class="snap-start position-relative">
-		<section class="pt-12 sm:pt-16 md:pt-20 pb-20 sm:pb-30 md:pb-50 px-4 sm:px-10 md:px-20">
-			<h2 class="text-5xl sm:text-5xl font-bold text-center pb-1 transition-transform duration-300 hover:scale-120"><span class="text-white-200/90 opacity-90" data-i18n="proyectos">{t('proyectos', lang)}</span></h2>
-			<Proyectos />
-		</section>
+		<RobustFadeIn client:visible>
+			<section class="pt-12 sm:pt-16 md:pt-20 pb-20 sm:pb-30 md:pb-50 px-4 sm:px-10 md:px-20">
+				<h2 class="text-5xl sm:text-5xl font-bold text-center pb-1 transition-transform duration-300 hover:scale-120"><span class="text-white-200/90 opacity-90" data-i18n="proyectos">{t('proyectos', lang)}</span></h2>
+				<Proyectos />
+			</section>
+		</RobustFadeIn>
 	</div>
 	
-	<div id="contacto" class="snap-start">
-		<section class="pt-12 sm:pt-16 md:pt-20 pb-20 sm:pb-30 md:pb-50 px-4 sm:px-10 md:px-20">
-			<h2 class="text-3xl sm:text-4xl font-bold text-center pb-2 sm:pb-4"><span class="text-white-200/90 opacity-90" data-i18n="contactame">{t('contactame', lang)}</span></h2>
-			<ContactMe />
-		</section>
+	<div id="contacto" class="snap-center">
+		<RobustFadeIn client:visible>
+			<section class="pt-12 sm:pt-16 md:pt-20 pb-20 sm:pb-30 md:pb-50 px-4 sm:px-10 md:px-20">
+				<h2 class="text-3xl sm:text-4xl font-bold text-center pb-2 sm:pb-4"><span class="text-white-200/90 opacity-90" data-i18n="contactame">{t('contactame', lang)}</span></h2>
+				<ContactMe />
+			</section>
+		</RobustFadeIn>
 	</div>
 	<footer class="snap-start">
 		<Footer />
