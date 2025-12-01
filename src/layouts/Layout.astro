@@ -24,7 +24,7 @@ import "../styles/global.css";
 		font-family: system-ui, sans-serif;
 		background-color: rgb(19, 19, 20);
 		min-height: 100dvh;
-
+		
 	}
 	html {
 		scroll-behavior: smooth;
@@ -34,4 +34,12 @@ import "../styles/global.css";
 			scroll-behavior: smooth;
 		}
 	}
+	.scrollbar-hidden::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none;  /* IE y Edge Legacy */
+  scrollbar-width: none;     /* Firefox */
+}
 </style>

@@ -1,4 +1,7 @@
 ---
+import StarBorder from "@/components/StarBorder.tsx";
+import Dock from "@/components/Dock.tsx";
+import BlurText from "@/components/BlurText.tsx";
 import HeaderReact from '../components/HeaderReact.jsx';
 import LightRays from  '../components/LightRays';
 import RobustFadeIn from '../components/RobustFadeIn.jsx';
@@ -9,60 +12,77 @@ import GitHubIcon from '../icons/github.astro';
 import Mail from '../icons/mail.astro';
 import Experience from '../components/Experience.astro';
 import SectionContainer from '../icons/SectionContainer.astro';
-import Header from '../components/Header.astro';
 import Habilidades from '../components/Habilidades.astro';
 import Proyectos from '../components/Proyectos.astro';
 import ContactMe from '../components/ContactMe.astro';
 import { t } from '../i18n/translations';
 import { translations } from '../i18n/translations';
 import Footer from '../components/footer.astro';
+import Linkedin from "../icons/linkedin.astro";
+import Github from "../icons/github.astro";
+
 // Default to Spanish, will be updated on client side
 const lang: 'es' | 'en' | 'de' = 'es';
+
 ---
 
-<Layout>
+<Layout >
 	<HeaderReact client:load />
 
-	<main class="scroll-smooth snap-y snap-mandatory overflow-auto w-full h-screen relative z-10 flex flex-col items-center justify-start text-white ">
-	<div class="fixed inset-0 -z-10 overflow-hidden">
-  <LightRays
- 	client:load
-    raysOrigin="top-center"
-    raysColor="#aaaaaa"
-    raysSpeed={1.5}
-    lightSpread={0.8}
-    rayLength={1.2}
-    followMouse={true}
-    mouseInfluence={0.1}
-    noiseAmount={0.1}
-    distortion={0.05}
-    className="w-full h-full"
-  />
-</div>
+	<main class="scroll-smooth snap-y snap-mandatory overflow-auto w-full h-screen relative z-10 flex flex-col items-center justify-start text-white scrollbar-hidden ">
+	<div class="fixed inset-0 -z-10 overflow-hidden ">
+	<LightRays
+		client:load
+		raysOrigin="top-center"
+		raysColor="#aaaaaa"
+		raysSpeed={1.5}
+		lightSpread={0.8}
+		rayLength={1.2}
+		followMouse={true}
+		mouseInfluence={0.1}
+		noiseAmount={0.1}
+		distortion={0.05}
+		className="w-full h-full"
+			/>
+		</div>
 		<RobustFadeIn client:visible>
 			
 			<div id="inicio" class="snap-center flex flex-col items-center justify-center pt-20 sm:pt-40 md:pt-60 transition-transform duration-300 hover:scale-115 ease-in px-4">
-				<h1 class="text-white text-3xl sm:text-4xl md:text-5xl font-bold flex flex-row gap-x-2 sm:gap-x-4 py-10 sm:py-16 md:py-20 text-center justify-center hover:drop-shadow-[0_0_1px_white]">German Heredia Ezequiel</h1>
-				<h2 class="text-xl sm:text-2xl font-bold text-center"><span class="text-yellow-200/90 opacity-90" data-i18n="desarrollador">{t('desarrollador', lang)}</span></h2>
-				<h2 class="text-lg sm:text-xl font-bold text-center"><span class="text-yellow-200/90 opacity-90" data-i18n="fullStack">{t('fullStack', lang)}</span></h2>
+				<h1>
+					<BlurText
+					text=" German Heredia"
+					animateBy="letters"
+					className="whitespace-nowrap text-6xl sm:text-7xl md:text-8xl font-bold drop-shadow-[0_0_15px_rgba(255,255,255,0.7)]"
+					client:visible
+					/>
+				</h1>
+				
+				<h2 class="py-15">
+					<BlurText
+					text=" Software Developer"
+					animateBy="letters"
+					className="text-4xl sm:text-4xl md:text-4xl font-bold drop-shadow-[0_0_15px_rgba(255,255,0,0.4)]"
+					client:visible
+					/>
+				</h2>
+				
 			</div>
 			<div>
 				<SectionContainer>
-				<nav class="flex gap-x-2 justify-center">
-		
-				<SocialPill href="https://www.linkedin.com/in/german-heredia-12504a376/?trk=opento_sprofile_details">
-					<LinkedInIcon width="20" height="20" />
-					<span class="text-sm sm:text-base">LinkedIn</span>
-				</SocialPill>
-				<SocialPill href="https://github.com/germanheredia121-tech">
-					<GitHubIcon width="20" height="20" />
-					<span class="text-sm sm:text-base">GitHub</span>
-				</SocialPill>
-				<SocialPill href="mailto:germanheredia121@gmail.com">
-					<Mail width="20" height="20" />
-					<span class="text-xs sm:text-sm md:text-base break-all">germanheredia121@gmail.com</span>
-				</SocialPill>
-				</nav>
+					<nav class="w-full flex justify-center items-center text-center gap-x-2">
+						<SocialPill href="https://www.linkedin.com/in/german-heredia-12504a376">
+							<LinkedInIcon width="20" height="20" />
+							<span class="text-xs sm:text-sm md:text-base break-all">LinkedIn</span>
+						</SocialPill>
+						<SocialPill href="https://github.com/germanheredia121-tech">
+							<GitHubIcon width="20" height="20" />
+							<span class="text-xs sm:text-sm md:text-base break-all">GitHub</span>
+						</SocialPill>
+						<SocialPill href="mailto:germanheredia121@gmail.com">
+							<Mail width="20" height="20" />
+							<span class="text-xs sm:text-sm md:text-base break-all">germanheredia121@gmail.com</span>
+						</SocialPill>
+					</nav>
 				</SectionContainer>
 				
 			</div>
@@ -74,7 +94,7 @@ const lang: 'es' | 'en' | 'de' = 'es';
 	<div class="snap-start" id="experiencia">
 		<RobustFadeIn client:visible>
 			<section class="py-20 sm:py-30 md:py-50 px-4 sm:px-10 md:px-20">
-				<h2 class="text-5xl sm:text-5xl font-bold text-center pb-8 sm:pb-20 md:pb-30 transition-transform duration-300 hover:scale-120"><span class="text-white-200/90 opacity-90" data-i18n="experiencia">{t('experiencia', lang)}</span></h2>
+				<h2 class="text-5xl sm:text-7xl font-bold text-center pb-8 sm:pb-20 md:pb-30 transition-transform duration-300 hover:scale-120"><span class="text-white-200/90 opacity-90" data-i18n="experiencia">{t('experiencia', lang)}</span></h2>
 				<Experience />
 			</section>
 		</RobustFadeIn>
@@ -88,7 +108,7 @@ const lang: 'es' | 'en' | 'de' = 'es';
 		</RobustFadeIn>
 	</div>
 	
-	<div id="proyectos" class="snap-start position-relative">
+	<div id="proyectos" class="snap-start">
 		<RobustFadeIn client:visible>
 			<section class="pt-12 sm:pt-16 md:pt-20 pb-20 sm:pb-30 md:pb-50 px-4 sm:px-10 md:px-20">
 				<h2 class="text-5xl sm:text-5xl font-bold text-center pb-1 transition-transform duration-300 hover:scale-120"><span class="text-white-200/90 opacity-90" data-i18n="proyectos">{t('proyectos', lang)}</span></h2>
