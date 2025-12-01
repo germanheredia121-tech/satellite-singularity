@@ -1,4 +1,5 @@
 ---
+import HeaderReact from '../components/HeaderReact.jsx';
 import LightRays from  '../components/LightRays';
 import RobustFadeIn from '../components/RobustFadeIn.jsx';
 import Layout from '../layouts/Layout.astro';
@@ -20,7 +21,7 @@ const lang: 'es' | 'en' | 'de' = 'es';
 ---
 
 <Layout>
-	<Header />
+	<HeaderReact client:load />
 
 	<main class="scroll-smooth snap-y snap-mandatory overflow-auto w-full h-screen relative z-10 flex flex-col items-center justify-start text-white ">
 	<div class="fixed inset-0 -z-10 overflow-hidden">
