@@ -18,7 +18,7 @@ export default function HeaderReact() {
             setActive(id);
           }
         },
-        { threshold: 0.55 }
+        { threshold: 0.25 }
       );
 
       observer.observe(el);
