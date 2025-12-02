@@ -20,6 +20,8 @@ import { translations } from '../i18n/translations';
 import Footer from '../components/footer.astro';
 import Linkedin from "../icons/linkedin.astro";
 import Github from "../icons/github.astro";
+import LanguageToggle from '../components/LanguageToggle.astro';
+
 
 // Default to Spanish, will be updated on client side
 const lang: 'es' | 'en' | 'de' = 'es';
@@ -94,7 +96,7 @@ const lang: 'es' | 'en' | 'de' = 'es';
 	<div class="snap-start" id="experiencia">
 		<RobustFadeIn client:visible>
 			<section class="py-20 sm:py-30 md:py-50 px-4 sm:px-10 md:px-20">
-				<h2 class="text-5xl sm:text-7xl font-bold text-center pb-8 sm:pb-20 md:pb-30 transition-transform duration-300 hover:scale-120"><span class="text-white-200/90 opacity-90" data-i18n="experiencia">{t('experiencia', lang)}</span></h2>
+				<h2 class="text-5xl sm:text-7xl font-bold text-center pb-8 sm:pb-20 md:pb-30 transition-transform duration-300 hover:scale-120"><span class="text-white-200/90 opacity-90 drop-shadow-[0_0_15px_rgba(255,255,255,0.7)]" data-i18n="experiencia">{t('experiencia', lang)}</span></h2>
 				<Experience />
 			</section>
 		</RobustFadeIn>
@@ -102,7 +104,7 @@ const lang: 'es' | 'en' | 'de' = 'es';
 	
 	<div id="habilidades" class="snap-start">
 		<RobustFadeIn client:visible>
-			<section class="pt-12 sm:pt-16 md:pt-20 pb-20 sm:pb-30 md:pb-50 px-4 sm:px-10 md:px-20">
+			<section class="pt-12 sm:pt-16 md:pt-20 pb-20 sm:pb-30 md:pb-50 px-4 sm:px-10 md:px-20 ">
 				<Habilidades />
 			</section>
 		</RobustFadeIn>
@@ -111,7 +113,7 @@ const lang: 'es' | 'en' | 'de' = 'es';
 	<div id="proyectos" class="snap-start">
 		<RobustFadeIn client:visible>
 			<section class="pt-12 sm:pt-16 md:pt-20 pb-20 sm:pb-30 md:pb-50 px-4 sm:px-10 md:px-20">
-				<h2 class="text-5xl sm:text-5xl font-bold text-center pb-1 transition-transform duration-300 hover:scale-120"><span class="text-white-200/90 opacity-90" data-i18n="proyectos">{t('proyectos', lang)}</span></h2>
+				<h2 class="text-5xl sm:text-5xl font-bold text-center pb-1 transition-transform duration-300 hover:scale-120"><span class="text-white-200/90 opacity-90 drop-shadow-[0_0_15px_rgba(255,255,255,0.7)]" data-i18n="proyectos">{t('proyectos', lang)}</span></h2>
 				<Proyectos />
 			</section>
 		</RobustFadeIn>
@@ -120,7 +122,7 @@ const lang: 'es' | 'en' | 'de' = 'es';
 	<div id="contacto" class="snap-center">
 		<RobustFadeIn client:visible>
 			<section class="pt-12 sm:pt-16 md:pt-20 pb-20 sm:pb-30 md:pb-50 px-4 sm:px-10 md:px-20">
-				<h2 class="text-3xl sm:text-4xl font-bold text-center pb-2 sm:pb-4"><span class="text-white-200/90 opacity-90" data-i18n="contactame">{t('contactame', lang)}</span></h2>
+				<h2 class="text-3xl sm:text-4xl font-bold text-center pb-2 sm:pb-4"><span class="text-white-200/90 opacity-90 drop-shadow-[0_0_15px_rgba(255,255,255,0.7)]" data-i18n="contactame">{t('contactame', lang)}</span></h2>
 				<ContactMe />
 			</section>
 		</RobustFadeIn>
