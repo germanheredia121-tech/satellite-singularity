@@ -4,38 +4,25 @@ import { t } from '../i18n/translations';
 // Default to Spanish, will be updated on client side
 const lang: 'es' | 'en' | 'de' = 'es';
 
-// Proyectos placeholder - puedes agregar más proyectos aquí
 const proyectos = [
   {
     id: 1,
-    title: "Proyecto 1",
-    description: "Descripción del proyecto 1",
-    technologies: ["React", "Node.js"],
-    link: "#",
+    featured: true,
+    title: "SaaS de gestión para peluquerías",
+    description: "Plataforma en producción para gestionar turnos, clientes y operación diaria de peluquerías. Incluye autenticación, panel administrativo y base de datos relacional.",
+    technologies: ["Next.js", "TypeScript", "Drizzle ORM", "Neon PostgreSQL"],
+    link: "https://github.com/germanheredia121-tech",
+    proof: ["Producción activa", "Clientes pagos", "Auth + Turnos + Admin"],
     image: null
   },
   {
     id: 2,
-    title: "Proyecto 2",
-    description: "Descripción del proyecto 2",
-    technologies: ["Astro", "Tailwind"],
-    link: "#",
-    image: null
-  },
-  {
-    id: 3,
-    title: "Proyecto 3",
-    description: "Descripción del proyecto 3",
-    technologies: ["Python", "Django"],
-    link: "#",
-    image: null
-  },
-  {
-    id: 4,
-    title: "Proyecto 4",
-    description: "Descripción del proyecto 4",
-    technologies: ["Vue", "TypeScript"],
-    link: "#",
+    featured: false,
+    title: "StudyHub (Open Source)",
+    description: "Plataforma para developers LATAM enfocada en rutas de estudio prácticas: JavaScript, TypeScript, React, Next.js, Node.js, SQL, testing y fundamentos de ingeniería.",
+    technologies: ["Next.js", "TypeScript", "React", "Node.js", "PostgreSQL"],
+    link: "https://github.com/germanheredia121-tech",
+    proof: ["Open Source", "Foco LATAM", "Contenido técnico práctico"],
     image: null
   },
 ];
@@ -52,9 +39,19 @@ const proyectos = [
         href={proyecto.link}
         target="_blank"
         rel="noopener noreferrer"
-        class="proyecto-card group relative bg-neutral-800/50 rounded-lg p-4 sm:p-5 border border-neutral-700 hover:border-yellow-400/50 transition-all duration-500 ease-in-out hover:scale-[1.02] hover:shadow-lg hover:shadow-yellow-400/20"
+        class:list={[
+          "proyecto-card group relative rounded-lg p-4 sm:p-5 border transition-all duration-500 ease-in-out hover:scale-[1.02] hover:shadow-lg",
+          proyecto.featured
+            ? "md:col-span-2 lg:col-span-2 bg-gradient-to-br from-yellow-500/15 to-neutral-800/60 border-yellow-400/50 hover:shadow-yellow-400/20"
+            : "bg-neutral-800/50 border-neutral-700 hover:border-yellow-400/50 hover:shadow-yellow-400/20"
+        ]}
       >
         <div class="flex flex-col h-full">
+          {proyecto.featured && (
+            <span class="inline-flex w-fit mb-3 px-3 py-1 rounded-full text-xs font-semibold bg-yellow-400 text-black">
+              Proyecto principal
+            </span>
+          )}
           {proyecto.image ? (
             <img
               src={proyecto.image}
@@ -76,6 +73,13 @@ const proyectos = [
           <p class="text-gray-400 text-sm sm:text-base mb-3 sm:mb-4 flex-grow">
             {proyecto.description}
           </p>
+          <div class="flex flex-wrap gap-2 mb-3">
+            {proyecto.proof.map((item) => (
+              <span class="px-2 py-1 text-xs font-medium bg-black/30 text-yellow-300 rounded-md border border-yellow-400/20">
+                {item}
+              </span>
+            ))}
+          </div>
           
           <div class="flex flex-wrap gap-2 mb-3 sm:mb-4">
             {proyecto.technologies.map((tech) => (
@@ -86,7 +90,7 @@ const proyectos = [
           </div>
           
           <div class="mt-2 sm:mt-3 flex items-center text-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-sm sm:text-base font-medium">Ver proyecto</span>
+            <span class="text-sm sm:text-base font-medium" data-i18n="verProyecto">{t('verProyecto', lang)}</span>
             <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
             </svg>

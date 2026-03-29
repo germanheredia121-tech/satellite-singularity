@@ -12,14 +12,19 @@ const EXPERIENCE = [
     description: t('experiencia1Desc', lang),
   },
   {
-    date: '2020-2022',
+    date: t('actualidad', lang),
     title: t('experiencia2Title', lang),
     description: t('experiencia2Desc', lang),
   },
   {
-    date: '2016-2020',
+    date: '2020-2022',
     title: t('experiencia3Title', lang),
     description: t('experiencia3Desc', lang),
+  },
+  {
+    date: '2016-2020',
+    title: t('experiencia4Title', lang),
+    description: t('experiencia4Desc', lang),
   },
 ];
 ---
@@ -50,11 +55,17 @@ const EXPERIENCE = [
         if (titleEl) titleEl.textContent = langTranslations['experiencia1Title'] || '';
         if (descEl) descEl.textContent = langTranslations['experiencia1Desc'] || '';
       } else if (index === 1) {
+        if (dateEl) dateEl.textContent = langTranslations['actualidad'] || 'Actualidad';
         if (titleEl) titleEl.textContent = langTranslations['experiencia2Title'] || '';
         if (descEl) descEl.textContent = langTranslations['experiencia2Desc'] || '';
       } else if (index === 2) {
+        if (dateEl) dateEl.textContent = '2020-2022';
         if (titleEl) titleEl.textContent = langTranslations['experiencia3Title'] || '';
         if (descEl) descEl.textContent = langTranslations['experiencia3Desc'] || '';
+      } else if (index === 3) {
+        if (dateEl) dateEl.textContent = '2016-2020';
+        if (titleEl) titleEl.textContent = langTranslations['experiencia4Title'] || '';
+        if (descEl) descEl.textContent = langTranslations['experiencia4Desc'] || '';
       }
     });
     

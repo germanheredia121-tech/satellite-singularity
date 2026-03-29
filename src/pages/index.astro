@@ -49,7 +49,7 @@ const lang: 'es' | 'en' | 'de' = 'es';
 		</div>
 		<RobustFadeIn client:visible>
 			
-			<div id="inicio" class="snap-center flex flex-col items-center justify-center pt-20 sm:pt-40 md:pt-60 transition-transform duration-300 hover:scale-115 ease-in px-4">
+			<div id="inicio" class="snap-center flex flex-col items-center justify-center pt-20 sm:pt-40 md:pt-52 px-4 max-w-6xl">
 				<h1>
 					<BlurText
 					text=" German Heredia"
@@ -59,15 +59,31 @@ const lang: 'es' | 'en' | 'de' = 'es';
 					/>
 				</h1>
 				
-				<h2 class="py-15">
+				<h2 class="py-8 sm:py-10">
 					<BlurText
-					text=" Software Developer"
+					text={t('desarrollador', lang)}
 					animateBy="letters"
-					className="text-4xl sm:text-4xl md:text-4xl font-bold drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]"
+					className="text-2xl sm:text-3xl md:text-4xl font-bold drop-shadow-[0_0_15px_rgba(255,255,255,0.5)] text-center"
 					client:visible
 					/>
 				</h2>
-				
+				<p class="max-w-3xl text-center text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed px-4" data-i18n="heroDescripcion">
+					{t('heroDescripcion', lang)}
+				</p>
+				<div class="flex flex-wrap gap-3 justify-center mt-8">
+					<a href="#proyectos" class="px-6 py-3 rounded-xl bg-yellow-400 text-black font-semibold hover:bg-yellow-300 transition-all duration-300 shadow-lg shadow-yellow-400/20 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-400/40 active:scale-95" data-i18n="heroCtaProyecto">
+						{t('heroCtaProyecto', lang)}
+					</a>
+					<a href="#contacto" class="px-6 py-3 rounded-xl border border-neutral-500 text-white font-semibold hover:border-yellow-400 hover:text-yellow-300 hover:bg-yellow-400/10 transition-all duration-300 hover:-translate-y-1 hover:scale-105 active:scale-95" data-i18n="heroCtaContacto">
+						{t('heroCtaContacto', lang)}
+					</a>
+				</div>
+				<div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3 w-full max-w-4xl">
+					<div class="rounded-lg border border-neutral-700 bg-neutral-900/60 px-3 py-2 text-center text-sm text-gray-200" data-i18n="heroBadge1">{t('heroBadge1', lang)}</div>
+					<div class="rounded-lg border border-neutral-700 bg-neutral-900/60 px-3 py-2 text-center text-sm text-gray-200" data-i18n="heroBadge2">{t('heroBadge2', lang)}</div>
+					<div class="rounded-lg border border-neutral-700 bg-neutral-900/60 px-3 py-2 text-center text-sm text-gray-200" data-i18n="heroBadge3">{t('heroBadge3', lang)}</div>
+					<div class="rounded-lg border border-neutral-700 bg-neutral-900/60 px-3 py-2 text-center text-sm text-gray-200" data-i18n="heroBadge4">{t('heroBadge4', lang)}</div>
+				</div>
 			</div>
 			<div>
 				<SectionContainer>
@@ -130,6 +146,9 @@ const lang: 'es' | 'en' | 'de' = 'es';
 	<footer class="snap-center">
 		<Footer />
 	</footer>
+	<a href="#contacto" class="fixed bottom-5 right-5 z-30 px-4 py-3 rounded-full bg-yellow-400 text-black text-sm sm:text-base font-bold shadow-lg shadow-yellow-400/30 hover:bg-yellow-300 transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-400/50 active:scale-95">
+		Entrevista
+	</a>
 	</main>
 </Layout>
 
